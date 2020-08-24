@@ -1,5 +1,6 @@
 from skimage.metrics import structural_similarity as ssim
 import cv2
+import os
 
 
 def get_frame(video_path: str):
@@ -33,7 +34,11 @@ try:
     (score, diff) = ssim(gray_1, gray_2, full=True)
     print("score = ", score)
 
+    # obtain size of the provided video files
+    print()
+    print("VIDEO_PATH_1 size = {0:.2f} KiB".format(os.path.getsize(VIDEO_PATH_1) / 1000))
+    print("VIDEO_PATH_1 size = {0:.2f} KiB".format(os.path.getsize(VIDEO_PATH_2) / 1000))
+
 
 except Exception as e:
     print(e)
-
