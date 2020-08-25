@@ -2,6 +2,9 @@ from skimage.metrics import structural_similarity as ssim
 import cv2
 import os
 
+from analysis.size import SizeAnalysis
+from utilities.plot import Plotter
+
 
 def get_frame(video_path: str):
     cap = cv2.VideoCapture(video_path)
@@ -19,8 +22,16 @@ def get_frame(video_path: str):
 
 
 try:
+    VIDEO_PATH = 'video_samples/'
+    VIDEO_TEST_AGAINST = 'input.mp4'
+
     VIDEO_PATH_1 = 'video_samples/input.mp4'
     VIDEO_PATH_2 = 'video_samples/output.avi'
+
+    video_names = os.listdir(VIDEO_PATH)
+    old_index = video_names.index(VIDEO_TEST_AGAINST)
+    video_names.insert(0, video_names.pop(old_index))
+    print(video_names)
 
     # take 2 frames
     frame_1 = get_frame(VIDEO_PATH_1)
@@ -39,6 +50,13 @@ try:
     print("VIDEO_PATH_1 size = {0:.2f} KiB".format(os.path.getsize(VIDEO_PATH_1) / 1000))
     print("VIDEO_PATH_1 size = {0:.2f} KiB".format(os.path.getsize(VIDEO_PATH_2) / 1000))
 
+    # obtaining results
+    size_analysis = SizeAnalysis(video_names)
+    video_sizes = size_analysis.get_results()
+
+    # plotting results
+    plotter = Plotter(video_names)
+    plotter.plot_sizes(video_sizes)
 
 except Exception as e:
     print(e)
