@@ -18,8 +18,16 @@ class Plotter:
         plt.xlabel('video formatai')
         plt.ylabel('KiB')
         plt.title('video formatų dydžio palyginimas')
-
         plt.xticks(rotation=90)
         plt.bar(range(len(video_data)), video_data, color='royalblue', alpha=0.9)
         plt.grid(color='#95a5a6', linestyle='--', linewidth=1, axis='y')
+        plt.show()
+
+    def plot_ssim(self, video_data: list):
+        plt.plot(self.video_labels[1:], video_data[1:], color='red', marker='o')
+        plt.xticks(rotation=90)
+        plt.xlabel('video formatai', fontsize=14)
+        plt.ylabel('ssim', fontsize=14)
+        plt.title('video formatų struktūriniai palyginimai', fontsize=14)
+        plt.grid(True)
         plt.show()
