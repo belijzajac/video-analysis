@@ -3,9 +3,7 @@ import os
 from analysis.frame import FrameAnalysis
 from analysis.size import SizeAnalysis
 from utilities.plot import Plotter
-
-VIDEO_PATH = 'video_samples/'
-VIDEO_TEST_AGAINST = 'input.mp4'
+from utilities.constants import (VIDEO_PATH, VIDEO_TEST_AGAINST)
 
 
 def main():

@@ -1,4 +1,5 @@
 from skimage.metrics import structural_similarity as ssim
+from utilities.constants import VIDEO_PATH
 import cv2
 
 """
@@ -8,14 +9,13 @@ A class responsible for conducting a frame analysis on video files
 
 
 class FrameAnalysis:
-    VIDEO_PATH = 'video_samples/'  # relative path containing video files
-    video_names = []               # list containing video names
+    video_names = []  # list containing video names
 
     def __init__(self, names: list):
         self.video_names = names
 
     def get_frame(self, video_name: str):
-        cap = cv2.VideoCapture(self.VIDEO_PATH + video_name)
+        cap = cv2.VideoCapture(VIDEO_PATH + video_name)
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         middle_frame = int(total_frames / 2)
 
