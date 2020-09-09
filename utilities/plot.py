@@ -14,12 +14,12 @@ class Plotter:
         self.video_labels = labels
 
     def plot_sizes(self, video_data: list):
-        plt.xticks(range(len(video_data)), self.video_labels)
+        plt.xticks(range(len(video_data) - 1), self.video_labels[1:])
         plt.xlabel('video formatai')
         plt.ylabel('KiB')
         plt.title('video formatų dydžio palyginimas')
         plt.xticks(rotation=90)
-        plt.bar(range(len(video_data)), video_data, color='royalblue', alpha=0.9)
+        plt.bar(range(len(video_data) - 1), video_data[1:], color='royalblue', alpha=0.9)
         plt.grid(color='#95a5a6', linestyle='--', linewidth=1, axis='y')
         plt.show()
 

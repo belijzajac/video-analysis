@@ -38,6 +38,8 @@ check_if_exists () {
   if [ ! -f $(pwd)/${input_file} ];
     then print_message error "the input file ${input_file} doesn't exist";
   fi
+  
+  cp ${input_file} ${save_location}/${input_file}
 }
 
 # -------------------------------------------------------------------------------------------------
