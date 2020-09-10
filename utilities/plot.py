@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 A class responsible for plotting the following results:
     - size
     - ssim
+    - psnr
 """
 
 
@@ -29,5 +30,14 @@ class Plotter:
         plt.xlabel('video formatai', fontsize=14)
         plt.ylabel('ssim', fontsize=14)
         plt.title('video formatų struktūriniai palyginimai', fontsize=14)
+        plt.grid(True)
+        plt.show()
+
+    def plot_psnr(self, video_data: list):
+        plt.plot(self.video_labels[1:], video_data[1:], color='red', marker='o')
+        plt.xticks(rotation=90)
+        plt.xlabel('video formatai', fontsize=14)
+        plt.ylabel('psnr (dB)', fontsize=14)
+        plt.title('didžiausias signalo ir triukšmo santykis', fontsize=14)
         plt.grid(True)
         plt.show()

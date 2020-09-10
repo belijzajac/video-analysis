@@ -26,6 +26,8 @@ def main():
         frame_analysis = FrameAnalysis(video_names)
         video_ssim = frame_analysis.get_ssim_results()
         print("video_ssim = ", video_ssim[1:])
+        video_psnr = frame_analysis.get_psnr_results()
+        print("video_psnr = ", video_psnr[1:])
         # 2. size
         size_analysis = SizeAnalysis(video_names)
         video_sizes = size_analysis.get_results()
@@ -35,6 +37,7 @@ def main():
         plotter = Plotter(video_labels)
         # 1. frame
         plotter.plot_ssim(video_ssim)
+        plotter.plot_psnr(video_psnr)
         # 2. size
         plotter.plot_sizes(video_sizes)
 
