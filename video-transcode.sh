@@ -3,6 +3,7 @@
 # Information taken from the following sources:
 # https://en.wikipedia.org/wiki/Video_file_format
 # https://slhck.info/video/2017/02/24/vbr-settings.html
+# https://github.com/KDE/kdenlive/blob/f8654e66ced4c4f71c875a0a6205b5abec06930f/data/profiles.xml
 #
 
 input_file="input.mp4"

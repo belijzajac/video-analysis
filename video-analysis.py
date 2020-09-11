@@ -1,10 +1,9 @@
-import os
-
 from analysis.frame import FrameAnalysis
 from analysis.size import SizeAnalysis
 from utilities.plot import Plotter
 from utilities.constants import (VIDEO_PATH, VIDEO_TEST_AGAINST)
 import traceback
+import os
 
 
 def main():
