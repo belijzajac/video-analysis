@@ -34,7 +34,7 @@ class Plotter:
         plt.show()
 
     def plot_psnr(self, video_data: list):
-        plt.plot(self.video_labels[1:], video_data[1:], color='red', marker='o')
+        plt.plot(self.video_labels[1:], video_data[1:], color='green', marker='o')
         plt.xticks(rotation=90)
         plt.xlabel('video formatai', fontsize=14)
         plt.ylabel('psnr (dB)', fontsize=14)

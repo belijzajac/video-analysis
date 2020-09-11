@@ -84,11 +84,11 @@ class FrameAnalysis:
     # function that does the psnr computation and returns the results
     def get_psnr_results(self):
         psnr_array = [100.0]
-        grayscale_original_video = self.create_colorspace_array(self.video_names[0], 'ycbcr')
+        ycbcr_original_video = self.create_colorspace_array(self.video_names[0], 'ycbcr')
 
         for video in self.video_names[1:]:
-            grayscale_video_to_test = self.create_colorspace_array(video, 'ycbcr')
-            psnr_score = self.calculate_psnr(grayscale_original_video, grayscale_video_to_test)
+            ycbcr_video_to_test = self.create_colorspace_array(video, 'ycbcr')
+            psnr_score = self.calculate_psnr(ycbcr_original_video, ycbcr_video_to_test)
             psnr_array.append(psnr_score)
 
         return psnr_array
