@@ -2,7 +2,6 @@ from analysis.frame import FrameAnalysis
 from analysis.size import SizeAnalysis
 from utilities.plot import Plotter
 from utilities.constants import (VIDEO_PATH, VIDEO_TEST_AGAINST)
-import traceback
 import os
 
 
@@ -20,17 +19,19 @@ def main():
             video_labels.append(video_names[item].partition('.')[0])
         print("video_labels = ", video_labels[1:])
 
-        # obtaining results
-        # 1. frame
+        # frame analysis tests
         frame_analysis = FrameAnalysis(video_names)
-        video_ssim = frame_analysis.get_ssim_results()
+        frame_analysis.run_tests()
+        video_ssim = frame_analysis.ssim_results
         print("video_ssim = ", video_ssim[1:])
-        video_psnr = frame_analysis.get_psnr_results()
+        video_psnr = frame_analysis.psnr_results
         print("video_psnr = ", video_psnr[1:])
-        # 2. size
+
+        # size analysis tests
         size_analysis = SizeAnalysis(video_names)
-        video_sizes = size_analysis.get_results()
-        print("video_sizes = ", video_sizes[1:])
+        size_analysis.run_tests()
+        video_sizes = size_analysis.size_results
+        print("video_size = ", video_sizes[1:])
 
         # plotting results
         plotter = Plotter(video_labels)
@@ -42,7 +43,6 @@ def main():
 
     except Exception as e:
         print("VideoAnalysis error:", e)
-        traceback.print_exc()
 
 
 if __name__ == '__main__':
