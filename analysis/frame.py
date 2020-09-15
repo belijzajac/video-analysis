@@ -1,6 +1,6 @@
 from skimage.metrics import (structural_similarity as ssim, peak_signal_noise_ratio as psnr)
 from utilities.constants import (VIDEO_PATH, FRAMES_TO_TEST)
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import (ThreadPoolExecutor, as_completed)
 import os
 import numpy as np
 import math
