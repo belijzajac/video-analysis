@@ -27,7 +27,7 @@ class FrameAnalysis:
         self.workers = os.cpu_count()
         np.seterr(divide='ignore')  # ignore numpy's division by 0 warning
 
-    def create_colorspace_array(self, vid_name: str, color_space):
+    def create_colorspace_array(self, vid_name: str, color_space: str):
         cv_color_space = None
         grayscale_array = []
         vidcap = cv2.VideoCapture(VIDEO_PATH + vid_name)
